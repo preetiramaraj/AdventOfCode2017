@@ -10,14 +10,15 @@ for i, l in enumerate(inp):
     lnew_arr = lnew.split(" ")
     valid = True
     for x in lnew_arr:
-        if x in dict:
+        #y = x # Part 1
+        y = ''.join(sorted(x))
+        if y in dict:
             valid = False
             break
         else:
-            dict[x] = 1
+            dict[y] = 1
     if valid:
         sum += 1
-
 print sum
 
 
