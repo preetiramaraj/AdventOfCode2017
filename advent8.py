@@ -18,9 +18,7 @@ def main():
         inp = f.readlines()
 
     inst = [(x.replace("\n", "")).split("if") for x in inp]
-    print inst
-    print (inst[0][0]).strip().split(" ")
-    print (inst[0][1]).strip().split(" ")
+    max_val = 0
     reg = defaultdict(lambda: 0)
     for i, row in enumerate(inst):
         action = inst[i][0].strip().split(" ")
@@ -30,7 +28,9 @@ def main():
                 reg[action[0]] += int(action[2])
             else:
                 reg[action[0]] -= int(action[2])
-    max_val = max([value for key, value in reg.items()])
+            if reg[action[0]] > max_val:
+                max_val = reg[action[0]]
+    #max_val = max([value for key, value in reg.items()]) # Part 1
     print max_val
 
 main()
