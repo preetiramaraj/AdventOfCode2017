@@ -9,10 +9,13 @@ def remove_cancelled(inp):
 
 
 def remove_garbage(inp):
+    total_garbage_characters = 0
     while '<' in inp:
         index = inp.index('<')
         index_g = inp.index('>')
+        total_garbage_characters += index_g - index - 1
         inp = inp[:index] + inp[index_g + 1:]
+    print total_garbage_characters
     return inp
 
 
@@ -36,7 +39,7 @@ def main():
 
     new_inp = remove_cancelled(inp[0])
     no_garbage_inp = remove_garbage(new_inp)
-    print calculate_score(no_garbage_inp)
+    # print calculate_score(no_garbage_inp) # Part 1
 
 
 main()
