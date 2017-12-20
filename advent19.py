@@ -43,6 +43,7 @@ def main():
                 traversed[j][i] = 1
 
     letters = ''
+    steps = 0
     direction = 'down'
     while 0 <= xi < len(inst) and 0 <= yi < max_y:
             if inst[xi][yi].isalpha():
@@ -55,7 +56,9 @@ def main():
                     break
             else:
                 xi, yi = value
+                steps += 1
     print letters
+    print steps
 
 
 main()
