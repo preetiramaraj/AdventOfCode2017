@@ -31,9 +31,14 @@ def main():
     x = 0
     y = 0
     z = 0
+    max_distance = 0
     for i, val in enumerate(input):
         x, y, z = nextCoordinate(val, x, y, z)
-    distance = (abs(x) + abs(y) + abs(z))/2
-    print "Manhattan distance = ", distance
+        distance = (abs(x) + abs(y) + abs(z))/2
+        if distance > max_distance:
+            max_distance = distance
+    #print "Manhattan distance = ", distance
+    print "Maximum distance from original position: ", max_distance # Part 2
+
 
 main()
